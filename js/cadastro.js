@@ -44,11 +44,6 @@ btnContinuar.addEventListener("click", async function () {
         return;
     } 
 
-    if (!nome || !sobrenome || !cep || !email) {
-        mostrarMensagem("Preencha todos os campos obrigatórios.");
-        return;
-    }
-
     const cepNumerico = Number(cep.replace(/\D/g, ""));
 
     if (cepNumerico.toString().length !== 8) {
