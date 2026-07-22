@@ -35,24 +35,24 @@ btnContinuar.addEventListener("click", async function () {
     }
 
     if (nome.length < 3) {
-        alert("O nome precisa ter pelo menos 3 caracteres.");
+        mostrarMensagem("O nome precisa ter pelo menos 3 caracteres.");
         return;
     }
 
     if (sobrenome.length < 3) {
-        alert("O sobrenome precisa ter pelo menos 3 caracteres.");
+        mostrarMensagem("O sobrenome precisa ter pelo menos 3 caracteres.");
         return;
     } 
 
     if (!nome || !sobrenome || !cep || !email) {
-        alert("Preencha todos os campos obrigatórios.");
+        mostrarMensagem("Preencha todos os campos obrigatórios.");
         return;
     }
 
     const cepNumerico = Number(cep.replace(/\D/g, ""));
 
     if (cepNumerico.toString().length !== 8) {
-        alert("Informe um CEP válido com 8 números.");
+        mostrarMensagem("Informe um CEP válido com 8 números.");
         return;
     }
 
@@ -66,12 +66,12 @@ btnContinuar.addEventListener("click", async function () {
 
     if (error) {
         console.error(error);
-        alert("Não foi possível validar o CEP.");
+        mostrarMensagem("Não foi possível validar o CEP.");
         return;
     }
 
     if (!regioes || regioes.length === 0) {
-        alert("O serviço ainda não está disponível para a região informada.");
+        mostrarMensagem("O serviço ainda não está disponível para a região informada.");
         return;
     }
 
@@ -97,17 +97,17 @@ formCadastro.addEventListener("submit", async function (event) {
         document.getElementById("confirmar-senha").value;
 
      if (nome.length < 3) {
-    alert("O nome precisa ter pelo menos 3 caracteres.");
+    mostrarMensagem("O nome precisa ter pelo menos 3 caracteres.");
     return;
 }
 
 if (sobrenome.length < 3) {
-    alert("O sobrenome precisa ter pelo menos 3 caracteres.");
+    mostrarMensagem("O sobrenome precisa ter pelo menos 3 caracteres.");
     return;
 }   
 
     if (senha !== confirmarSenha) {
-        alert("As senhas não são iguais.");
+        mostrarMensagem("As senhas não são iguais.");
         return;
     }
 
@@ -118,7 +118,7 @@ if (sobrenome.length < 3) {
         /[^A-Za-z0-9]/.test(senha);
 
     if (!senhaValida) {
-        alert(
+        mostrarMensagem(
             "A senha precisa ter pelo menos 8 caracteres, uma letra maiúscula, um número e um caractere especial."
         );
         return;
@@ -141,7 +141,7 @@ if (sobrenome.length < 3) {
 
     if (error) {
         console.error(error);
-        alert("Erro ao criar conta: " + error.message);
+        mostrarMensagem("Erro ao criar conta: " + error.message);
         return;
     }
 
