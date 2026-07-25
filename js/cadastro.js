@@ -70,6 +70,31 @@ btnContinuar.addEventListener("click", async function () {
         return;
     }
 
+    const { data: statusEmail, error: erroEmail } =
+    await supabaseClient.rpc("verificar_email_cadastrado", {
+        email_informado: email
+    });
+
+    console.log("E-mail consultado:", email);
+console.log("Status recebido:", statusEmail);
+console.log("Erro recebido:", erroEmail);
+
+if (erroEmail) {
+    console.error(erroEmail);
+    mostrarMensagem("Não foi possível verificar o e-mail.");
+    return;
+}
+
+if (statusEmail === "ativo") {
+    mostrarMensagem("Este e-mail já possui uma conta.");
+    return;
+}
+
+if (statusEmail === "pendente") {
+    mostrarMensagem("Este e-mail ainda não foi confirmado. Utilize o reenvio de confirmação.");
+    return;
+}
+
     dadosCadastro.style.display = "none";
     etapaSenha.style.display = "flex";
 });
