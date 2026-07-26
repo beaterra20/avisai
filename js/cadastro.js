@@ -44,12 +44,14 @@ btnContinuar.addEventListener("click", async function () {
         return;
     } 
 
-    const cepNumerico = Number(cep.replace(/\D/g, ""));
+   const cepSomenteNumeros = cep.replace(/\D/g, "");
 
-    if (cepNumerico.toString().length !== 8) {
-        mostrarMensagem("Informe um CEP válido com 8 números.");
-        return;
-    }
+if (cepSomenteNumeros.length !== 8) {
+    mostrarMensagem("Informe um CEP válido com 8 números.");
+    return;
+}
+
+const cepNumerico = Number(cepSomenteNumeros);
 
     const { data: regioes, error } = await supabaseClient
         .from("areas_cobertura")
