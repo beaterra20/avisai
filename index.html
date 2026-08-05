@@ -1,16 +1,81 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avisaí</title>
 
     <meta
-        http-equiv="refresh"
-        content="0; url=cadastro.html"
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
     >
+
+    <title>Avisaí</title>
+
+    <!-- Fontes do projeto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
-    <p>Redirecionando para o cadastro...</p>
+    <main class="home">
+
+        <div class="home-background" aria-hidden="true"></div>
+
+        <div class="home-overlay" aria-hidden="true"></div>
+
+        <section class="home-content">
+
+            <header class="home-brand">
+                <img
+                    src="assets/icons/logo-branca.svg"
+                    alt="Avisaí"
+                    class="home-logo"
+                >
+            </header>
+
+            <section class="home-info">
+                <h1>
+                    Seu bairro<br>
+                    mais conectado.
+                </h1>
+
+                <p>
+                    Alertas em tempo real, eventos locais e
+                    vizinhos que cuidam do lugar onde você mora.
+                </p>
+            </section>
+
+            <nav class="home-actions" aria-label="Opções de acesso">
+                <a
+                    href="cadastro.html"
+                    class="home-button"
+                >
+                    Criar conta
+                </a>
+
+                <a
+                    href="login.html"
+                    class="home-login-link"
+                >
+                    Já tenho uma conta · <strong>Entrar</strong>
+                </a>
+            </nav>
+
+        </section>
+
+    </main>
 </body>
+
 </html>

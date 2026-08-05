@@ -1,0 +1,197 @@
+/* Remove espaçamentos automáticos do navegador */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: "Nunito", sans-serif;
+    background-color: #0d2519;
+}
+
+/* Tela completa */
+.home {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    color: #ffffff;
+}
+
+/* Imagem da cidade */
+.home-background {
+    position: absolute;
+    inset: 0;
+
+    background-image: url("assets/cidade.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    z-index: 0;
+}
+
+/* Escurecimento da foto para facilitar a leitura */
+.home-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.05) 0%,
+        rgba(0, 0, 0, 0.10) 35%,
+        rgba(0, 0, 0, 0.38) 100%
+    );
+
+    z-index: 1;
+}
+
+/* Conteúdo sobre a imagem */
+.home-content {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    padding:
+    max(64px, env(safe-area-inset-top))
+    24px
+    max(40px, env(safe-area-inset-bottom));
+}
+
+/* Logo */
+.home-brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding-top: 26px;
+}
+
+.home-logo {
+    display: block;
+    width: 170px;
+    max-width: 55%;
+    height: auto;
+}
+
+/* Título e texto */
+.home-info {
+    margin-top: auto;
+    margin-bottom: 28px;
+}
+
+.home-info h1 {
+    max-width: 320px;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: clamp(30px, 8vw, 40px);
+    font-weight: 700;
+    line-height: 1.08;
+
+    margin-bottom: 18px;
+}
+
+.home-info p {
+    max-width: 340px;
+
+    font-size: clamp(14px, 3.8vw, 16px);
+    font-weight: 400;
+    line-height: 1.5;
+
+    color: rgba(255, 255, 255, 0.86);
+}
+
+/* Botão e link */
+.home-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    width: 100%;
+}
+
+.home-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    min-height: 58px;
+
+    padding: 16px 24px;
+    border-radius: 18px;
+
+    background-color: #166534;
+    color: #ffffff;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+
+    text-align: center;
+    text-decoration: none;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.home-button:hover {
+    background-color: #145c30;
+}
+
+.home-button:active {
+    transform: scale(0.98);
+}
+
+.home-login-link {
+    display: block;
+
+    color: rgba(255, 255, 255, 0.82);
+
+    font-size: 15px;
+    font-weight: 500;
+
+    text-align: center;
+    text-decoration: none;
+}
+
+.home-login-link strong {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+/* Mantém a tela confortável em celulares maiores */
+@media (min-width: 480px) {
+    .home-content {
+        max-width: 480px;
+        margin: 0 auto;
+    }
+}
+
+/* Visualização no computador */
+@media (min-width: 768px) {
+    .home {
+        max-width: 430px;
+        min-height: 100vh;
+        margin: 0 auto;
+
+        box-shadow: 0 0 35px rgba(0, 0, 0, 0.35);
+    }
+
+    body {
+        background-color: #bbccba;
+    }
+}

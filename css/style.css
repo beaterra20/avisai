@@ -19,13 +19,25 @@ body {
 }
 
 .btn-voltar {
-    width: 36px;
-    height: 36px;
-    border: none;
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     border-radius: 50%;
-    background-color: #e5decd;
-    cursor: pointer;
+    background-color: #eee8d8;
+
+    color: #0d4f2f;
+
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1;
+
+    flex-shrink: 0;
 }
+
 
 .cabecalho-cadastro h1 {
     font-size: 18px;
