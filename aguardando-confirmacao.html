@@ -3,41 +3,143 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
     <title>Cadastro realizado | Avisaí</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/confirmacao.css">
 </head>
 
 <body>
 
-    <main class="container-confirmacao">
+    <main class="confirmacao">
 
-        <h1>🎉 Cadastro realizado!</h1>
+        <section class="confirmacao-topo">
 
-        <p>
-            Seu cadastro foi criado com sucesso.
-        </p>
+            <div class="icone-sucesso" aria-hidden="true">
+            <span class="check-mark">✓</span>
+            </div>
 
-        <p>
-            Enviamos um e-mail de confirmação para o endereço informado.
-        </p>
+            <h1>Cadastro realizado!</h1>
 
-        <p>
-            Para ativar sua conta, clique no link enviado para sua caixa de entrada.
-        </p>
+            <p>
+                Seu cadastro foi criado com sucesso
+            </p>
 
-        <p>
-            Caso não encontre o e-mail, verifique a pasta de Spam ou Lixo Eletrônico.
-        </p>
+        </section>
 
-        <br>
+        <section class="card-email">
 
-        <a href="reenviar-confirmação.html">
-            Reenviar e-mail de confirmação
-        </a>
+            <header class="email-destino">
+
+                <div class="icone-email">
+                    ✉
+                </div>
+
+                <div>
+                    <span>E-MAIL ENVIADO PARA</span>
+
+                    <strong id="email-confirmacao"></strong>
+                </div>
+
+            </header>
+
+            <div class="passos-confirmacao">
+
+                <div class="passo">
+                    <span class="numero">1</span>
+
+                    <p>
+                        Enviamos um email de confirmação para o endereço informado.
+                    </p>
+                </div>
+
+                <div class="passo">
+                    <span class="numero">2</span>
+
+                    <p>
+                        Abra o email e clique no link de ativação para confirmar sua conta.
+                    </p>
+                </div>
+
+                <div class="passo">
+                    <span class="numero">3</span>
+
+                    <p>
+                        Caso não encontre o email, verifique a pasta de Spam ou Lixo Eletrônico.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="card-reenvio">
+
+            <div class="icone-alerta">
+                ♧
+            </div>
+
+            <div class="reenvio-conteudo">
+
+                <h2>Não recebeu o email?</h2>
+
+                <p>
+                    Aguarde alguns minutos e verifique também a pasta de spam.
+                </p>
+
+                <a href="reenviar-confirmacao.html">
+                    Reenviar email de confirmação
+                </a>
+
+            </div>
+
+        </section>
+
+        <nav class="acoes-confirmacao">
+
+            <a
+                href="login.html"
+                class="btn-continuar"
+            >
+                Continuar para Avisaí
+            </a>
+
+            <a
+                href="cadastro.html"
+                class="link-outra-conta"
+            >
+                Entrar com outra conta
+            </a>
+
+        </nav>
 
     </main>
+
+    <script>
+    const emailCadastro = sessionStorage.getItem("emailCadastro");
+    const campoEmail = document.getElementById("email-confirmacao");
+
+    campoEmail.textContent =
+        emailCadastro || "E-mail informado no cadastro";
+</script>
 
 </body>
 

@@ -101,11 +101,12 @@ if (statusEmail === "pendente") {
     etapaSenha.style.display = "flex";
 });
 
-btnVoltarSenha.addEventListener("click", function () {
-    etapaSenha.style.display = "none";
-    dadosCadastro.style.display = "block";
-});
-
+if (btnVoltarSenha) {
+    btnVoltarSenha.addEventListener("click", function () {
+        etapaSenha.style.display = "none";
+        dadosCadastro.style.display = "block";
+    });
+}
 
 formCadastro.addEventListener("submit", async function (event) {
     event.preventDefault();
@@ -167,39 +168,35 @@ if (sobrenome.length < 3) {
         return;
     }
 
-    window.location.href = "aguardando-confirmacao.html";
+   sessionStorage.setItem("emailCadastro", email);
+   window.location.href = "aguardando-confirmacao.html";
 });
 
-campoSenha.addEventListener("input", () => {
-
+campoSenha.addEventListener("input", function () {
     const senha = campoSenha.value;
 
     atualizarRequisito(reqTamanho, senha.length >= 8);
-
     atualizarRequisito(reqMaiuscula, /[A-Z]/.test(senha));
-
     atualizarRequisito(reqNumero, /[0-9]/.test(senha));
-
     atualizarRequisito(reqEspecial, /[^A-Za-z0-9]/.test(senha));
-
 });
-function atualizarRequisito(item, valido){
 
-    if(valido){
+function atualizarRequisito(item, valido) {
+    const texto = item.textContent
+        .replace("✅ ", "")
+        .replace("❌ ", "")
+        .replace("• ", "");
 
-        item.textContent = "✅ " + item.textContent.replace("✅ ","").replace("❌ ","");
-
+    if (valido) {
+        item.textContent = "✅ " + texto;
         item.style.color = "#1B8F3A";
-
-    }else{
-
-        item.textContent = "❌ " + item.textContent.replace("✅ ","").replace("❌ ","");
-
+    } else {
+        item.textContent = "❌ " + texto;
         item.style.color = "#B42318";
-
     }
-
 }
+
+
 function mostrarMensagem(texto){
 
     mensagem.textContent = texto;

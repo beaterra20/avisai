@@ -1,0 +1,181 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: "Nunito", sans-serif;
+    background-color: #BBCCBA;
+}
+
+/* Estrutura da tela */
+
+.login {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f5f0e7;
+}
+
+/* Cabeçalho verde */
+
+.login-header {
+    width: 100%;
+    height: 236px;
+
+    background-color: #166534;
+    color: #FFFFFF;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.login-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 18px;
+}
+
+.login-header h1 {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+
+    margin-bottom: 6px;
+}
+
+.login-header p {
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+/* Conteúdo */
+
+.login-content {
+    width: 100%;
+    padding: 26px 20px 40px;
+}
+
+#form-login {
+    width: 100%;
+}
+
+.campo-login {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.campo-login label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 12px;
+    font-weight: 700;
+    color: #5f645f;
+}
+
+.campo-login input {
+    width: 100%;
+    height: 48px;
+
+    padding: 0 16px;
+
+    border: none;
+    border-radius: 20px;
+    outline: none;
+
+    background-color: #FFFFFF;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    color: #1f1f1f;
+}
+
+.campo-login input::placeholder {
+    color: #949494;
+}
+
+.campo-login input:focus {
+    outline: 2px solid rgba(22, 101, 52, 0.25);
+}
+
+/* Botão */
+
+.btn-entrar {
+    width: 100%;
+    height: 54px;
+
+    margin-top: 4px;
+
+    border: none;
+    border-radius: 14px;
+
+    background-color: #166534;
+    color: #FFFFFF;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.btn-entrar:active {
+    transform: scale(0.99);
+}
+
+/* Criar conta */
+
+.criar-conta {
+    margin-top: 17px;
+
+    text-align: center;
+
+    font-size: 12px;
+    color: #77796f;
+}
+
+.criar-conta a {
+    color: #166534;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/* Mensagens */
+
+.mensagem-login {
+    display: none;
+
+    width: 100%;
+    margin-bottom: 18px;
+    padding: 12px 14px;
+
+    border-radius: 12px;
+
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* Visualização no computador */
+
+@media (min-width: 480px) {
+    .login {
+        max-width: 380px;
+        margin: 0 auto;
+
+        min-height: 100vh;
+    }
+}
