@@ -2,12 +2,13 @@ async function ativarConta() {
     const titulo = document.getElementById("titulo-confirmacao");
     const mensagem = document.getElementById("mensagem-confirmacao");
 
-    // O Supabase pode enviar erros depois do símbolo # na URL.
+    const hashConfirmacao =
+        window.hashConfirmacaoOriginal || window.location.hash;
+
     const parametrosHash = new URLSearchParams(
-        window.location.hash.substring(1)
+        hashConfirmacao.substring(1)
     );
 
-    // No fluxo PKCE, o código normalmente chega depois do símbolo ?.
     const parametrosQuery = new URLSearchParams(
         window.location.search
     );
@@ -21,6 +22,10 @@ async function ativarConta() {
         parametrosQuery.get("error_description");
 
     const codigo = parametrosQuery.get("code");
+    const accessToken = parametrosHash.get("access_token");
+    const refreshToken = parametrosHash.get("refresh_token");
+    const tokenHash = parametrosQuery.get("token_hash");
+    const tipo = parametrosQuery.get("type");
 
     // Primeiro: tratar link expirado ou inválido.
     if (
@@ -42,29 +47,18 @@ async function ativarConta() {
         return;
     }
 
-    // Sem código, não devemos usar uma sessão antiga como confirmação.
-    if (!codigo) {
-        titulo.textContent = "Não foi possível confirmar sua conta";
+    let usuario = null;
 
-        mensagem.innerHTML = `
-            O link de confirmação é inválido ou está incompleto.
-            <br><br>
-            <a href="reenviar-confirmacao.html">
-                Reenviar e-mail de confirmação
-            </a>
-        `;
+    // Se o link veio com token_hash
+if (tokenHash && tipo) {
+    const { data: dadosOtp, error: otpError } =
+        await supabaseClient.auth.verifyOtp({
+            token_hash: tokenHash,
+            type: tipo
+        });
 
-        return;
-    }
-
-    // Troca exclusivamente o código deste link por uma sessão.
-    const {
-        data: dadosSessao,
-        error: trocaError
-    } = await supabaseClient.auth.exchangeCodeForSession(codigo);
-
-    if (trocaError || !dadosSessao?.user) {
-        console.error(trocaError);
+    if (otpError || !dadosOtp?.user) {
+        console.error("Erro ao confirmar token:", otpError);
 
         titulo.textContent = "Link expirado";
 
@@ -80,7 +74,77 @@ async function ativarConta() {
         return;
     }
 
-    const usuario = dadosSessao.user;
+    usuario = dadosOtp.user;
+}
+
+// Se o Supabase enviou um código PKCE
+else if (codigo) {
+    const {
+        data: dadosSessao,
+        error: trocaError
+    } = await supabaseClient.auth.exchangeCodeForSession(codigo);
+
+    if (trocaError || !dadosSessao?.user) {
+        console.error(trocaError);
+
+        titulo.textContent = "Não foi possível confirmar sua conta";
+        mensagem.innerHTML = `
+            O link de confirmação é inválido ou expirou.
+            <br><br>
+            <a href="reenviar-confirmacao.html">
+                Reenviar e-mail de confirmação
+            </a>
+        `;
+
+        return;
+    }
+
+    usuario = dadosSessao.user;
+}
+
+// Se o Supabase enviou os tokens pelo #
+else if (accessToken && refreshToken) {
+    const {
+        data: dadosSessao,
+        error: sessaoError
+    } = await supabaseClient.auth.setSession({
+        access_token: accessToken,
+        refresh_token: refreshToken
+    });
+
+    if (sessaoError || !dadosSessao?.user) {
+        console.error(sessaoError);
+
+        titulo.textContent = "Não foi possível confirmar sua conta";
+        mensagem.innerHTML = `
+            O link de confirmação é inválido ou expirou.
+            <br><br>
+            <a href="reenviar-confirmacao.html">
+                Reenviar e-mail de confirmação
+            </a>
+        `;
+
+        return;
+    }
+
+    usuario = dadosSessao.user;
+}
+
+// Se não veio nem código nem tokens
+else {
+    titulo.textContent = "Não foi possível confirmar sua conta";
+
+    mensagem.innerHTML = `
+        O link de confirmação é inválido ou está incompleto.
+        <br><br>
+        <a href="reenviar-confirmacao.html">
+            Reenviar e-mail de confirmação
+        </a>
+    `;
+
+    return;
+}
+
 
     const { error: perfilError } = await supabaseClient
         .from("perfis")
