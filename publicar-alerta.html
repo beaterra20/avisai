@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Publicar Alerta | Avisaí</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/publicar-alerta.css">
+</head>
+
+<body>
+
+    <main class="publicar-alerta">
+
+        <header class="publicar-header">
+
+            <button
+                type="button"
+                class="btn-voltar"
+                onclick="window.location.href='feed.html'"
+                aria-label="Voltar para o feed"
+            >
+                ←
+            </button>
+
+            <h1>Publicar Alerta</h1>
+
+            <img
+                src="assets/icons/icone-verde.svg"
+                alt="Avisaí"
+                class="publicar-logo"
+            >
+
+        </header>
+
+        <section class="publicar-content">
+
+            <div class="publicar-search">
+                <input
+                    type="search"
+                    placeholder="Buscar alertas e eventos..."
+                    aria-label="Buscar alertas e eventos"
+                >
+            </div>
+
+            <div class="publicar-divider"></div>
+
+            <form id="form-alerta">
+
+                <div class="campo-alerta">
+
+                    <label for="titulo">
+                        TÍTULO *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="titulo"
+                        name="titulo"
+                        placeholder="Ex: sem luz, suspeito avistado"
+                        required
+                    >
+
+                </div>
+
+                <div class="campo-alerta">
+
+                    <label for="descricao">
+                        DESCRIÇÃO *
+                    </label>
+
+                    <textarea
+                        id="descricao"
+                        name="descricao"
+                        placeholder="Descreva o que está acontecendo com o máximo de detalhes..."
+                        minlength="10"
+                        required
+                    ></textarea>
+
+                    <p
+                        id="erro-descricao"
+                        class="erro-campo"
+                    ></p>
+
+                </div>
+
+                <div class="campo-alerta">
+
+                    <label>
+                        LOCALIZAÇÃO *
+                    </label>
+
+                    <div class="localizacao-alerta">
+
+                        <span class="icone-localizacao">
+                            📍
+                        </span>
+
+                        <span id="localizacao-texto">
+                            Obtendo localização...
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <fieldset class="urgencia-alerta">
+
+                    <legend>
+                        NÍVEL DE URGÊNCIA *
+                    </legend>
+
+                    <div class="opcoes-urgencia">
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="urgencia"
+                                value="Baixo"
+                            >
+
+                            <span>Baixo</span>
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="urgencia"
+                                value="Médio"
+                            >
+
+                            <span>Médio</span>
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="urgencia"
+                                value="Alto"
+                            >
+
+                            <span>Alto</span>
+                        </label>
+
+                    </div>
+
+                </fieldset>
+
+                <p
+                    id="mensagem-alerta"
+                    class="mensagem-alerta"
+                    aria-live="polite"
+                ></p>
+
+                <button
+                    type="submit"
+                    id="btn-publicar"
+                    class="btn-publicar"
+                    disabled
+                >
+                    Publicar
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/publicar-alerta.js"></script>
+
+</body>
+
+</html>

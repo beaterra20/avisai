@@ -1,0 +1,282 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: "Nunito", sans-serif;
+    background-color: #BBCCBA;
+}
+
+/* =========================
+   TELA DO FEED
+========================= */
+
+.feed {
+    width: 100%;
+    max-width: 380px;
+    min-height: 100vh;
+    margin: 0 auto;
+
+    background-color: #F7F3EB;
+}
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+.feed-header {
+    width: 100%;
+    height: 63px;
+    padding: 0 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #D9D9D9;
+}
+
+.feed-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.feed-brand-icon {
+    width: 36px;
+    height: 36px;
+}
+
+.feed-brand-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1C1C1C;
+}
+
+.feed-avatar {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: #E3FAD0;
+    color: #166534;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* =========================
+   CONTEÚDO
+========================= */
+
+.feed-content {
+    padding: 13px 10px 0;
+}
+
+/* =========================
+   BUSCA
+========================= */
+
+.feed-search {
+    width: 100%;
+}
+
+.feed-search input {
+    width: 100%;
+    height: 39px;
+
+    padding: 0 12px;
+
+    border: none;
+    border-radius: 20px;
+    outline: none;
+
+    background-color: #EEE9DD;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 12px;
+    color: #1C1C1C;
+}
+
+.feed-search input::placeholder {
+    color: #9B9487;
+}
+
+/* Linha abaixo da busca */
+
+.feed-divider {
+    width: 100%;
+    height: 1px;
+
+    margin-top: 12px;
+
+    background-color: #D9D9D9;
+}
+
+/* =========================
+   FEED VAZIO
+========================= */
+
+.feed-empty {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    padding-top: 38px;
+}
+
+.feed-empty h1 {
+    margin-bottom: 18px;
+
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+
+    color: #1C1C1C;
+}
+
+.feed-empty p {
+    width: 211px;
+
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+
+    color: #7C6E5A;
+}
+
+/* =========================
+   CRIAR ALERTA
+========================= */
+
+.feed-create-alert {
+    margin-top: 58px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #166534;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+.feed-create-icon {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background-color: #166534;
+    color: #FFFFFF;
+
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+/* =========================
+   CARDS DE ALERTA
+========================= */
+
+.feed-alertas {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    padding-top: 10px;
+}
+
+.alerta-card {
+    width: 100%;
+    min-height: 170px;
+
+    padding: 14px;
+
+    background-color: #FFFFFF;
+
+    border: 1px solid #D9D9D9;
+    border-radius: 20px;
+}
+
+.alerta-card-topo {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+.alerta-card h2 {
+    font-family: "Plus Jakarta Sans", sans-serif;
+
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+
+    color: #1C1C1C;
+}
+
+.alerta-urgencia {
+    flex-shrink: 0;
+
+    padding: 5px 12px;
+
+    border-radius: 20px;
+
+    background-color: #E3FAD0;
+
+    color: #166534;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.alerta-descricao {
+    margin-top: 14px;
+
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+
+    color: #7C6E5A;
+}
+
+.alerta-localizacao {
+    margin-top: 18px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    color: #7C6E5A;
+}

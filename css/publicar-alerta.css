@@ -1,0 +1,312 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: "Nunito", sans-serif;
+    background-color: #BBCCBA;
+}
+
+/* =========================
+   TELA PUBLICAR ALERTA
+========================= */
+
+.publicar-alerta {
+    width: 100%;
+    max-width: 380px;
+    min-height: 100vh;
+    margin: 0 auto;
+
+    background-color: #F7F3EB;
+}
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+.publicar-header {
+    width: 100%;
+    height: 63px;
+
+    padding: 0 10px;
+
+    display: grid;
+    grid-template-columns: 36px 1fr 36px;
+    align-items: center;
+
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #D9D9D9;
+}
+
+.btn-voltar {
+    width: 36px;
+    height: 36px;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: #EAE5D8;
+    color: #1C1C1C;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.publicar-header h1 {
+    text-align: left;
+    padding-left: 8px;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+
+    color: #1C1C1C;
+}
+
+.publicar-logo {
+    width: 36px;
+    height: 36px;
+}
+
+/* =========================
+   CONTEÚDO
+========================= */
+
+.publicar-content {
+    padding: 13px 10px 36px;
+}
+
+/* =========================
+   BUSCA
+========================= */
+
+.publicar-search input {
+    width: 100%;
+    height: 39px;
+
+    padding: 0 12px;
+
+    border: none;
+    border-radius: 20px;
+    outline: none;
+
+    background-color: #EEE9DD;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 12px;
+
+    color: #1C1C1C;
+}
+
+.publicar-search input::placeholder {
+    color: #9B9487;
+}
+
+.publicar-divider {
+    width: 100%;
+    height: 1px;
+
+    margin: 12px 0 18px;
+
+    background-color: #D9D9D9;
+}
+
+/* =========================
+   FORMULÁRIO
+========================= */
+
+.campo-alerta {
+    margin-bottom: 18px;
+}
+
+.campo-alerta label,
+.urgencia-alerta legend {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    color: #7C6E5A;
+}
+
+.campo-alerta input,
+.campo-alerta textarea {
+    width: 100%;
+
+    border: 1px solid #D9D9D9;
+    border-radius: 20px;
+    outline: none;
+
+    background-color: #FFFFFF;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+
+    color: #1C1C1C;
+}
+
+/* CAMPO TÍTULO */
+
+.campo-alerta input {
+    height: 39px;
+
+    padding: 0 8px;
+}
+
+/* CAMPO DESCRIÇÃO */
+
+.campo-alerta textarea {
+    height: 78px;
+
+    padding: 8px;
+
+    resize: none;
+}
+
+.campo-alerta input::placeholder,
+.campo-alerta textarea::placeholder {
+    color: #9B9487;
+}
+
+/* =========================
+   LOCALIZAÇÃO
+========================= */
+
+.localizacao-alerta {
+    width: 100%;
+    height: 39px;
+
+    padding: 0 8px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    border: 1px solid #D9D9D9;
+    border-radius: 20px;
+
+    background-color: #FFFFFF;
+
+    font-size: 13px;
+
+    color: #7C6E5A;
+}
+
+.icone-localizacao {
+    font-size: 14px;
+}
+
+/* =========================
+   URGÊNCIA
+========================= */
+
+.urgencia-alerta {
+    border: none;
+
+    margin-bottom: 34px;
+}
+
+.opcoes-urgencia {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 10px;
+}
+
+.opcoes-urgencia input {
+    position: absolute;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+.opcoes-urgencia span {
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background-color: #EAE5D8;
+
+    color: #7C6E5A;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.opcoes-urgencia input:checked + span {
+    background-color: #166534;
+
+    color: #FFFFFF;
+}
+
+/* =========================
+   MENSAGENS DE ERRO
+========================= */
+
+.erro-campo,
+.mensagem-alerta {
+    margin-top: 6px;
+
+    font-size: 12px;
+    line-height: 1.4;
+
+    color: #B42318;
+}
+
+/* =========================
+   BOTÃO PUBLICAR
+========================= */
+
+.btn-publicar {
+    width: 100%;
+    max-width: 200px;
+    height: 54px;
+
+    margin: 0 auto;
+
+    display: block;
+
+    border: none;
+    border-radius: 14px;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.btn-publicar:disabled {
+    background-color: #EAE5D8;
+
+    color: #7C6E5A;
+
+    cursor: not-allowed;
+}
+
+.btn-publicar:not(:disabled) {
+    background-color: #166534;
+
+    color: #FFFFFF;
+}
