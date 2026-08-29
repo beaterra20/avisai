@@ -280,3 +280,39 @@ body {
 
     color: #7C6E5A;
 }
+
+/* =========================
+   BOTÃO NOVO ALERTA
+========================= */
+
+.feed-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.feed-search input {
+    flex: 1;
+}
+
+.feed-add-alert {
+    width: 36px;
+    height: 36px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background-color: #166534;
+    color: #FFFFFF;
+
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1;
+
+    text-decoration: none;
+}
